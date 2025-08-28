@@ -1,12 +1,27 @@
 const callCost = 20;
 const callHistory = [];
 let heart = 0;
+let copy = 0;
 
 // count heart
 function countHeart() {
     const heartElement = document.getElementById("nav-heart");
     heart += 1;
     heartElement.innerText = heart;
+}
+
+// count copy
+function countCopy(id) {
+    const numberElement = document.getElementById(id);
+    const number = numberElement.innerText;
+    
+    // Copy to clipboard (easiest way)
+    navigator.clipboard.writeText(number);
+
+    alert(`Number copied: ${number}`);
+    const copyElement = document.getElementById("nav-copy");
+    copy += 1;
+    copyElement.innerText = copy;
 }
 
 // call function
