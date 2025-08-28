@@ -1,11 +1,51 @@
 const callCost = 20;
+const callHistory = [];
+let heart = 0;
 
-// function to call police 2
+// count heart
+function countHeart() {
+    const heartElement = document.getElementById("nav-heart");
+    heart += 1;
+    heartElement.innerText = heart;
+}
+
+// call function
 function call(title, number) {
     const text = document.getElementById(title).innerText;
     const callingNumber = document.getElementById(number).innerText;
     alert(`📞 Calling ${text} ${callingNumber}...`);
+
+    callHistory.push({
+        name: text,
+        number: callingNumber,
+        time: new Date().toLocaleTimeString()
+    });
+    
+    const finalCallHistory = document.getElementById("call-history");
+    finalCallHistory.innerHTML = "";
+
+    for (const data of callHistory) {
+        const div = document.createElement("div");
+        div.innerHTML = `
+        <div class="flex items-center justify-between rounded-lg p-4 bg-[#FAFAFA] mb-2">
+            <div>
+                <h3 class="text-lg font-semibold">${data.name}</h3>
+                <p class="text-lg text-[#5C5C5C]">${data.number}</p>
+            </div>
+            <p>${data.time}</p>
+        </div>
+        `;
+        finalCallHistory.appendChild(div);
+    }
 }
+
+// clear call history
+document.getElementById("btn-clear").addEventListener("click", function() {
+    callHistory = [];
+    const finalCallHistory = document.getElementById("call-history");
+    finalCallHistory.innerHTML = "";
+    console.log(callHistory);
+});
 
 // call button access
 document.getElementById("btn-national-emergency-call").addEventListener("click", function(e) {
