@@ -17,7 +17,7 @@ querySelectorAll selects all the elements matches by given class name.
 
 ### 2. How do you create and insert a new element into the DOM?
 
-**Answer:**
+**Answer:** At first, I need to create an element with html tag. Then mention some content inner of the newly created element. Finally, this element have to append this the parent node as a child. Without doing this step the content or an element wouldn't be shown in the html page. Here is an example -
 
 ```js
 // step - 1 : create a new element
