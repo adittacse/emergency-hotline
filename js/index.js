@@ -56,10 +56,9 @@ function call(title, number) {
 
 // clear call history
 document.getElementById("btn-clear").addEventListener("click", function() {
-    callHistory = [];
+    callHistory.length = 0;
     const finalCallHistory = document.getElementById("call-history");
     finalCallHistory.innerHTML = "";
-    console.log(callHistory);
 });
 
 // call button access
