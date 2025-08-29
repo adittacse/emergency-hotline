@@ -1,5 +1,5 @@
 const callCost = 20;
-const callHistory = [];
+let callHistory = [];
 let heart = 0;
 let copy = 0;
 
